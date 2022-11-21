@@ -83,7 +83,8 @@ class V4l2Device(io.IOBase):
                                         in self._device_caps]
 
         # Use the first supported buffer type as default.
-        self._buffer_type = self._supported_buffer_types[0]
+        if len(self._supported_buffer_types) > 0:
+            self._buffer_type = self._supported_buffer_types[0]
 
     ###########################################################################
     # I/O Interface
