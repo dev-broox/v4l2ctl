@@ -21,7 +21,8 @@ __all__ = ["V4l2Device", "V4l2Capabilities", "V4l2BufferType", "V4l2Formats",
 __author__ = "Michael Israel"
 __version__ = "0.1a5"
 
-
-from .v4l2device import V4l2Device, FeatureNotSupported
-from .ioctls import V4l2Capabilities, V4l2BufferType, IoctlError, \
+import sys
+if sys.platform == 'linux':
+    from .v4l2device import V4l2Device, FeatureNotSupported
+    from .ioctls import V4l2Capabilities, V4l2BufferType, IoctlError, \
                     V4l2Formats, V4l2FormatDescFlags
